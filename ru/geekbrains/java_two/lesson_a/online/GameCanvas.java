@@ -1,5 +1,4 @@
 package ru.geekbrains.java_two.lesson_a.online;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;

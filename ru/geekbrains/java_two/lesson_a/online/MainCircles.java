@@ -1,5 +1,4 @@
 package ru.geekbrains.java_two.lesson_a.online;
-
 import com.sun.deploy.security.JarSignature;
 
 import javax.swing.*;

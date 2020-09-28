@@ -1,5 +1,4 @@
 package ru.geekbrains.java_two.lesson_a.online;
-
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
