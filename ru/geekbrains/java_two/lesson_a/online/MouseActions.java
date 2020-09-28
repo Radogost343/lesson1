@@ -25,19 +25,17 @@ public class MouseActions extends MouseAdapter {
 
     private void addBall(MainCircles gameController) {
         Sprite[] sprites = new Sprite[gameController.sprites.length + 1];
-        for (int i = 0; i < gameController.sprites.length; i++) {
-            sprites[i] = gameController.sprites[i];
-        }
+        System.arraycopy(gameController.sprites, 0, sprites, 0, gameController.sprites.length);
         gameController.sprites = sprites;
         gameController.sprites[sprites.length - 1] = new Ball();
     }
 
     private void removeBall(MainCircles gameController) {
         Sprite[] sprite = new Sprite[gameController.sprites.length - 1];
-        for (int i = 0; i < gameController.sprites.length - 1; i++) {
-            sprite[i] = gameController.sprites[i];
-        }
+        if (gameController.sprites.length - 1 >= 0)
+            System.arraycopy(gameController.sprites, 0, sprite, 0, gameController.sprites.length - 1);
         gameController.sprites = sprite;
     }
+
 }
 
