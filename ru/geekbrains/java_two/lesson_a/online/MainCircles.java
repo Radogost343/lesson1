@@ -20,12 +20,7 @@ public class MainCircles extends JFrame {
 
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new MainCircles();
-            }
-        });
+        SwingUtilities.invokeLater(() -> new MainCircles());
     }
 
     private MainCircles() {
@@ -39,28 +34,26 @@ public class MainCircles extends JFrame {
         setVisible(true);
     }
 
-    private void initApplication(Sprite sprites[]) {
+    private void initApplication(Sprite[] sprites) {
         for (int i = 0; i < sprites.length; i++) {
             sprites[i] = new Ball();
         }
     }
 
     void onDrawFrame(GameCanvas canvas, Graphics g, float deltaTime) {
-        Background background = new Background(this);
         update(canvas, deltaTime); // obnovlenie // S = v * t
         render(canvas, g);// otrisovka
-        background.render(canvas,g);
     }
 
     private void update(GameCanvas canvas, float deltaTime) {
-        for (int i = 0; i < sprites.length; i++) {
-            sprites[i].update(canvas, deltaTime);
+        for (Sprite sprite : sprites) {
+            sprite.update(canvas, deltaTime);
         }
     }
 
     private void render(GameCanvas canvas, Graphics g) {
-        for (int i = 0; i < sprites.length; i++) {
-            sprites[i].render(canvas, g);
+        for (Sprite sprite : sprites) {
+            sprite.render(canvas, g);
         }
     }
 

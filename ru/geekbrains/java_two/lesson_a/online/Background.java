@@ -3,23 +3,23 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Background extends Sprite{
-    MainCircles gameController;
+    private float time;
+    private static final float AMPLITUDE = 255f/2f;
+    private Color color;
 
 
-    Background(MainCircles gameController) {
-        this.gameController = gameController;
+    @Override
+    void update(GameCanvas canvas, float deltaTime) {
+        time += deltaTime;
+        int red = Math.round(AMPLITUDE + AMPLITUDE * (float) Math.sin(time * 2f));
+        int green = Math.round(AMPLITUDE + AMPLITUDE * (float) Math.sin(time * 3f));
+        int blue = Math.round(AMPLITUDE + AMPLITUDE * (float) Math.sin(time));
+        color = new Color(red,green,blue);
     }
-
-    private final Color color = new Color(
-            (int) (Math.random() * 255),
-            (int) (Math.random() * 255),
-            (int) (Math.random() * 255)
-    );
 
     @Override
     void render(GameCanvas canvas, Graphics g) {
-        super.render(canvas, g);
-        canvas.setBackground(color);
+     canvas.setBackground(color);
     }
 
 }
