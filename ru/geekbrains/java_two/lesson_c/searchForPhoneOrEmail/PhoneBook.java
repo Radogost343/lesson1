@@ -37,9 +37,6 @@ class Person {
         ArrayList<Person> person = CreateList();
         for (Person item : person) {
             PhoneBook.phoneEmail.put(item.FIO, item.phone);
-//            if (PhoneBook.phoneEmail.containsKey(person.get(i).FIO)); {
-//             PhoneBook.phoneEmail.put(person.get(i).FIO, person.get(i).phone);
-//            }
         }
         for (String key : PhoneBook.phoneEmail.keySet()) {
             String value = PhoneBook.phoneEmail.get(key);
